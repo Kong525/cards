@@ -5,47 +5,39 @@
     <button class="fold" type="button" @click="open = !open">
       <span class="fold__state">
         <span class="fold__dot" :class="{ 'is-hot': active_count > 0 }"></span>
-        {{ active_count > 0 ? `${active_count} 人在显形` : '全员潜伏' }}
+        {{ present_count > 0 ? `${present_count} 人在场` : '场上没人' }}
       </span>
-      <span class="fold__top">洗脑度最高：{{ top_name }} {{ top_value }}%</span>
+      <span class="fold__top">{{ active_count > 0 ? `显形 ${active_count} 人` : '全员潜伏' }}</span>
       <span class="fold__chev">{{ open ? '收起' : '展开' }}</span>
     </button>
 
     <div v-if="open" class="body">
-      <TargetGrid />
-      <TriggerPanel />
+      <CharacterPager />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import CharacterPager from './components/CharacterPager.vue';
 import TopBar from './components/TopBar.vue';
-import TargetGrid from './components/TargetGrid.vue';
-import TriggerPanel from './components/TriggerPanel.vue';
-import { TARGETS, useDataStore } from './store';
+import { get_character, list_characters, useDataStore } from './store';
 
 const store = useDataStore();
 const open = useLocalStorage('穿越成我的小说苦主:statusbar:open', true);
 
-const active_count = computed(() => TARGETS.filter(name => store.data[name].显形态 === '显形').length);
+const present_count = computed(() =>
+  list_characters(store.data).filter(name => get_character(store.data, name)?.在场).length,
+);
 
-const top = computed(() => {
-  let best = TARGETS[0];
-  for (const name of TARGETS) {
-    if (store.data[name].洗脑度 > store.data[best].洗脑度) {
-      best = name;
-    }
-  }
-  return best;
-});
-const top_name = computed(() => top.value);
-const top_value = computed(() => store.data[top.value].洗脑度);
+const active_count = computed(() =>
+  list_characters(store.data).filter(name => get_character(store.data, name)?.显形态 === '显形').length,
+);
 </script>
 
 <style lang="scss" scoped>
 .card {
   width: 100%;
-  max-width: 760px;
+  max-width: 460px;
   margin: 0 auto;
   background: var(--c-surface);
   border: 1px solid var(--c-border);

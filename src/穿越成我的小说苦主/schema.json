@@ -7,7 +7,7 @@
       "type": "object",
       "properties": {
         "日期": {
-          "default": "2024/09/01",
+          "default": "2025/09/01",
           "type": "string"
         },
         "时间段": {
@@ -37,7 +37,7 @@
           ]
         },
         "当前场景": {
-          "default": "客厅",
+          "default": "李攀的房间",
           "type": "string"
         },
         "剧情阶段": {
@@ -192,626 +192,62 @@
     },
     "方逸雅": {
       "default": {},
-      "type": "object",
-      "properties": {
-        "洗脑度": {
-          "default": 0,
-          "type": "number"
-        },
-        "人格阶段": {
-          "default": "主人格",
-          "type": "string",
-          "enum": [
-            "主人格",
-            "第二人格",
-            "最终阶段"
-          ]
-        },
-        "当前人格": {
-          "default": "主人格",
-          "type": "string"
-        },
-        "称号": {
-          "default": "无",
-          "type": "string"
-        },
-        "人格维持": {
-          "default": "长期挂载",
-          "type": "string"
-        },
-        "显形态": {
-          "default": "潜伏",
-          "type": "string",
-          "enum": [
-            "潜伏",
-            "显形"
-          ]
-        },
-        "今日功课": {
-          "default": "已完成",
-          "type": "string",
-          "enum": [
-            "已完成",
-            "超额"
-          ]
-        },
-        "触发条件": {
-          "default": {},
-          "type": "object",
-          "propertyNames": {
-            "type": "string",
-            "description": "触发名"
-          },
-          "additionalProperties": {
-            "type": "string",
-            "enum": [
-              "已知",
-              "未知"
-            ]
-          }
-        }
-      }
+      "$ref": "#/$defs/__schema0"
     },
     "李望舒": {
       "default": {},
-      "type": "object",
-      "properties": {
-        "洗脑度": {
-          "default": 0,
-          "type": "number"
-        },
-        "人格阶段": {
-          "default": "主人格",
-          "type": "string",
-          "enum": [
-            "主人格",
-            "第二人格",
-            "最终阶段"
-          ]
-        },
-        "当前人格": {
-          "default": "主人格",
-          "type": "string"
-        },
-        "称号": {
-          "default": "无",
-          "type": "string"
-        },
-        "人格维持": {
-          "default": "长期挂载",
-          "type": "string"
-        },
-        "显形态": {
-          "default": "潜伏",
-          "type": "string",
-          "enum": [
-            "潜伏",
-            "显形"
-          ]
-        },
-        "今日功课": {
-          "default": "已完成",
-          "type": "string",
-          "enum": [
-            "已完成",
-            "超额"
-          ]
-        },
-        "触发条件": {
-          "default": {},
-          "type": "object",
-          "propertyNames": {
-            "type": "string",
-            "description": "触发名"
-          },
-          "additionalProperties": {
-            "type": "string",
-            "enum": [
-              "已知",
-              "未知"
-            ]
-          }
-        }
-      }
+      "$ref": "#/$defs/__schema0"
     },
     "李可心": {
       "default": {},
-      "type": "object",
-      "properties": {
-        "洗脑度": {
-          "default": 0,
-          "type": "number"
-        },
-        "人格阶段": {
-          "default": "主人格",
-          "type": "string",
-          "enum": [
-            "主人格",
-            "第二人格",
-            "最终阶段"
-          ]
-        },
-        "当前人格": {
-          "default": "主人格",
-          "type": "string"
-        },
-        "称号": {
-          "default": "无",
-          "type": "string"
-        },
-        "人格维持": {
-          "default": "长期挂载",
-          "type": "string"
-        },
-        "显形态": {
-          "default": "潜伏",
-          "type": "string",
-          "enum": [
-            "潜伏",
-            "显形"
-          ]
-        },
-        "今日功课": {
-          "default": "已完成",
-          "type": "string",
-          "enum": [
-            "已完成",
-            "超额"
-          ]
-        },
-        "触发条件": {
-          "default": {},
-          "type": "object",
-          "propertyNames": {
-            "type": "string",
-            "description": "触发名"
-          },
-          "additionalProperties": {
-            "type": "string",
-            "enum": [
-              "已知",
-              "未知"
-            ]
-          }
-        }
-      }
+      "$ref": "#/$defs/__schema0"
     },
     "李月怡": {
       "default": {},
-      "type": "object",
-      "properties": {
-        "洗脑度": {
-          "default": 0,
-          "type": "number"
-        },
-        "人格阶段": {
-          "default": "主人格",
-          "type": "string",
-          "enum": [
-            "主人格",
-            "第二人格",
-            "最终阶段"
-          ]
-        },
-        "当前人格": {
-          "default": "主人格",
-          "type": "string"
-        },
-        "称号": {
-          "default": "无",
-          "type": "string"
-        },
-        "人格维持": {
-          "default": "长期挂载",
-          "type": "string"
-        },
-        "显形态": {
-          "default": "潜伏",
-          "type": "string",
-          "enum": [
-            "潜伏",
-            "显形"
-          ]
-        },
-        "今日功课": {
-          "default": "已完成",
-          "type": "string",
-          "enum": [
-            "已完成",
-            "超额"
-          ]
-        },
-        "触发条件": {
-          "default": {},
-          "type": "object",
-          "propertyNames": {
-            "type": "string",
-            "description": "触发名"
-          },
-          "additionalProperties": {
-            "type": "string",
-            "enum": [
-              "已知",
-              "未知"
-            ]
-          }
-        }
-      }
+      "$ref": "#/$defs/__schema0"
     },
     "欣雨墨": {
       "default": {},
-      "type": "object",
-      "properties": {
-        "洗脑度": {
-          "default": 0,
-          "type": "number"
-        },
-        "人格阶段": {
-          "default": "主人格",
-          "type": "string",
-          "enum": [
-            "主人格",
-            "第二人格",
-            "最终阶段"
-          ]
-        },
-        "当前人格": {
-          "default": "主人格",
-          "type": "string"
-        },
-        "称号": {
-          "default": "无",
-          "type": "string"
-        },
-        "人格维持": {
-          "default": "长期挂载",
-          "type": "string"
-        },
-        "显形态": {
-          "default": "潜伏",
-          "type": "string",
-          "enum": [
-            "潜伏",
-            "显形"
-          ]
-        },
-        "今日功课": {
-          "default": "已完成",
-          "type": "string",
-          "enum": [
-            "已完成",
-            "超额"
-          ]
-        },
-        "触发条件": {
-          "default": {},
-          "type": "object",
-          "propertyNames": {
-            "type": "string",
-            "description": "触发名"
-          },
-          "additionalProperties": {
-            "type": "string",
-            "enum": [
-              "已知",
-              "未知"
-            ]
-          }
-        }
-      }
+      "$ref": "#/$defs/__schema0"
     },
     "阮馨香": {
       "default": {},
-      "type": "object",
-      "properties": {
-        "洗脑度": {
-          "default": 0,
-          "type": "number"
-        },
-        "人格阶段": {
-          "default": "主人格",
-          "type": "string",
-          "enum": [
-            "主人格",
-            "第二人格",
-            "最终阶段"
-          ]
-        },
-        "当前人格": {
-          "default": "主人格",
-          "type": "string"
-        },
-        "称号": {
-          "default": "无",
-          "type": "string"
-        },
-        "人格维持": {
-          "default": "长期挂载",
-          "type": "string"
-        },
-        "显形态": {
-          "default": "潜伏",
-          "type": "string",
-          "enum": [
-            "潜伏",
-            "显形"
-          ]
-        },
-        "今日功课": {
-          "default": "已完成",
-          "type": "string",
-          "enum": [
-            "已完成",
-            "超额"
-          ]
-        },
-        "触发条件": {
-          "default": {},
-          "type": "object",
-          "propertyNames": {
-            "type": "string",
-            "description": "触发名"
-          },
-          "additionalProperties": {
-            "type": "string",
-            "enum": [
-              "已知",
-              "未知"
-            ]
-          }
-        }
-      }
+      "$ref": "#/$defs/__schema0"
     },
     "冷千雪": {
       "default": {},
-      "type": "object",
-      "properties": {
-        "洗脑度": {
-          "default": 0,
-          "type": "number"
-        },
-        "人格阶段": {
-          "default": "主人格",
-          "type": "string",
-          "enum": [
-            "主人格",
-            "第二人格",
-            "最终阶段"
-          ]
-        },
-        "当前人格": {
-          "default": "主人格",
-          "type": "string"
-        },
-        "称号": {
-          "default": "无",
-          "type": "string"
-        },
-        "人格维持": {
-          "default": "长期挂载",
-          "type": "string"
-        },
-        "显形态": {
-          "default": "潜伏",
-          "type": "string",
-          "enum": [
-            "潜伏",
-            "显形"
-          ]
-        },
-        "今日功课": {
-          "default": "已完成",
-          "type": "string",
-          "enum": [
-            "已完成",
-            "超额"
-          ]
-        },
-        "触发条件": {
-          "default": {},
-          "type": "object",
-          "propertyNames": {
-            "type": "string",
-            "description": "触发名"
-          },
-          "additionalProperties": {
-            "type": "string",
-            "enum": [
-              "已知",
-              "未知"
-            ]
-          }
-        }
-      }
+      "$ref": "#/$defs/__schema0"
     },
     "欣芙倩": {
       "default": {},
-      "type": "object",
-      "properties": {
-        "洗脑度": {
-          "default": 0,
-          "type": "number"
-        },
-        "人格阶段": {
-          "default": "主人格",
-          "type": "string",
-          "enum": [
-            "主人格",
-            "第二人格",
-            "最终阶段"
-          ]
-        },
-        "当前人格": {
-          "default": "主人格",
-          "type": "string"
-        },
-        "称号": {
-          "default": "无",
-          "type": "string"
-        },
-        "人格维持": {
-          "default": "长期挂载",
-          "type": "string"
-        },
-        "显形态": {
-          "default": "潜伏",
-          "type": "string",
-          "enum": [
-            "潜伏",
-            "显形"
-          ]
-        },
-        "今日功课": {
-          "default": "已完成",
-          "type": "string",
-          "enum": [
-            "已完成",
-            "超额"
-          ]
-        },
-        "触发条件": {
-          "default": {},
-          "type": "object",
-          "propertyNames": {
-            "type": "string",
-            "description": "触发名"
-          },
-          "additionalProperties": {
-            "type": "string",
-            "enum": [
-              "已知",
-              "未知"
-            ]
-          }
-        }
-      }
+      "$ref": "#/$defs/__schema0"
     },
     "李月瑶": {
       "default": {},
-      "type": "object",
-      "properties": {
-        "洗脑度": {
-          "default": 0,
-          "type": "number"
-        },
-        "人格阶段": {
-          "default": "主人格",
-          "type": "string",
-          "enum": [
-            "主人格",
-            "第二人格",
-            "最终阶段"
-          ]
-        },
-        "当前人格": {
-          "default": "主人格",
-          "type": "string"
-        },
-        "称号": {
-          "default": "无",
-          "type": "string"
-        },
-        "人格维持": {
-          "default": "长期挂载",
-          "type": "string"
-        },
-        "显形态": {
-          "default": "潜伏",
-          "type": "string",
-          "enum": [
-            "潜伏",
-            "显形"
-          ]
-        },
-        "今日功课": {
-          "default": "已完成",
-          "type": "string",
-          "enum": [
-            "已完成",
-            "超额"
-          ]
-        },
-        "触发条件": {
-          "default": {},
-          "type": "object",
-          "propertyNames": {
-            "type": "string",
-            "description": "触发名"
-          },
-          "additionalProperties": {
-            "type": "string",
-            "enum": [
-              "已知",
-              "未知"
-            ]
-          }
-        }
-      }
+      "$ref": "#/$defs/__schema0"
     },
     "赵青青": {
       "default": {},
-      "type": "object",
-      "properties": {
-        "洗脑度": {
-          "default": 0,
-          "type": "number"
-        },
-        "人格阶段": {
-          "default": "主人格",
-          "type": "string",
-          "enum": [
-            "主人格",
-            "第二人格",
-            "最终阶段"
-          ]
-        },
-        "当前人格": {
-          "default": "主人格",
-          "type": "string"
-        },
-        "称号": {
-          "default": "无",
-          "type": "string"
-        },
-        "人格维持": {
-          "default": "长期挂载",
-          "type": "string"
-        },
-        "显形态": {
-          "default": "潜伏",
-          "type": "string",
-          "enum": [
-            "潜伏",
-            "显形"
-          ]
-        },
-        "今日功课": {
-          "default": "已完成",
-          "type": "string",
-          "enum": [
-            "已完成",
-            "超额"
-          ]
-        },
-        "触发条件": {
-          "default": {},
-          "type": "object",
-          "propertyNames": {
-            "type": "string",
-            "description": "触发名"
-          },
-          "additionalProperties": {
-            "type": "string",
-            "enum": [
-              "已知",
-              "未知"
-            ]
-          }
-        }
-      }
+      "$ref": "#/$defs/__schema0"
     },
     "晴晴喵": {
       "default": {},
+      "$ref": "#/$defs/__schema0"
+    },
+    "其他角色": {
+      "default": {},
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "description": "角色名"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/__schema0"
+      }
+    }
+  },
+  "$defs": {
+    "__schema0": {
       "type": "object",
       "properties": {
         "洗脑度": {
@@ -836,7 +272,7 @@
           "type": "string"
         },
         "人格维持": {
-          "default": "长期挂载",
+          "default": "未触发",
           "type": "string"
         },
         "显形态": {
@@ -854,6 +290,10 @@
             "已完成",
             "超额"
           ]
+        },
+        "在场": {
+          "default": false,
+          "type": "boolean"
         },
         "触发条件": {
           "default": {},
