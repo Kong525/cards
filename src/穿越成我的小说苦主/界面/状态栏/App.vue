@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card" :style="vars">
     <TopBar />
 
     <button class="fold" type="button" @click="open = !open">
@@ -14,16 +14,33 @@
     <div v-if="open" class="body">
       <CharacterPager />
     </div>
+
+    <div class="palette">
+      <span class="palette__label">配色</span>
+      <button
+        v-for="name in theme_names"
+        :key="name"
+        type="button"
+        class="palette__dot"
+        :class="{ 'palette__dot--on': theme === name }"
+        :style="{ background: THEMES[name].primary }"
+        :title="name"
+        @click="theme = name"
+      ></button>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import CharacterPager from './components/CharacterPager.vue';
 import TopBar from './components/TopBar.vue';
-import { get_character, list_characters, useDataStore } from './store';
+import { get_character, list_characters, THEMES, theme_vars, useDataStore, type ThemeName } from './store';
 
 const store = useDataStore();
 const open = useLocalStorage('穿越成我的小说苦主:statusbar:open', true);
+const theme = useLocalStorage<ThemeName>('穿越成我的小说苦主:statusbar:theme', '夜紫');
+const theme_names = Object.keys(THEMES) as ThemeName[];
+const vars = computed(() => theme_vars(theme.value));
 
 const present_count = computed(() =>
   list_characters(store.data).filter(name => get_character(store.data, name)?.在场).length,
@@ -64,7 +81,7 @@ const active_count = computed(() =>
   text-align: left;
 
   &:hover {
-    background: #f3ece0;
+    background: var(--c-surface-soft);
   }
 }
 
@@ -83,7 +100,7 @@ const active_count = computed(() =>
 
   &.is-hot {
     background: var(--c-accent);
-    box-shadow: 0 0 0 3px rgb(180 72 92 / 18%);
+    box-shadow: 0 0 0 3px rgb(196 106 156 / 22%);
   }
 }
 
@@ -101,5 +118,38 @@ const active_count = computed(() =>
 .body {
   padding: 10px 12px 12px;
   border-top: 1px solid var(--c-border);
+}
+
+.palette {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  padding: 5px 12px 7px;
+  border-top: 1px solid var(--c-border);
+  background: var(--c-surface);
+}
+
+.palette__label {
+  margin-right: 2px;
+  color: var(--c-text-muted);
+  font-size: 10.5px;
+}
+
+.palette__dot {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border: 1px solid var(--c-border);
+  border-radius: 50%;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &--on {
+    transform: scale(1.2);
+    box-shadow: 0 0 0 2px var(--c-text-muted);
+  }
 }
 </style>

@@ -27,14 +27,14 @@ export const Schema = z.object({
       日期: z.string().prefault('2025/09/01'),
       时间段: z.enum(['清晨', '上午', '中午', '下午', '傍晚', '夜里', '深夜']).prefault('清晨'),
       当前区域: z
-        .enum(['李家住宅', '何浩家', '临江第一中学', '甜心女仆咖啡厅', '风俗街', '情侣宾馆', '李攀的出租房'])
+        .enum(['李家住宅', '何浩家', '临江第一中学', '甜心女仆咖啡厅', '风俗街', '情侣宾馆', '出租房'])
         .prefault('李家住宅'),
-      当前场景: z.string().prefault('李攀的房间'),
+      当前场景: z.string().prefault('<user>的房间'),
       剧情阶段: z.enum(['穿越第一日', '攻防取证', '老师物化', '系统易主', '经营占有', '终局']).prefault('穿越第一日'),
     })
     .prefault({}),
 
-  // ── 主角（<user> 李攀，固定键名「主角」）──
+  // ── 主角（<user>，固定键名「主角」）──
   主角: z
     .object({
       身体状态: z.enum(['正常', '疲惫', '虚弱', '受伤']).prefault('正常'),
@@ -64,7 +64,7 @@ export const Schema = z.object({
   // ── 系统（心海洗脑系统）──
   系统: z
     .object({
-      持有者: z.enum(['何浩', '李攀']).prefault('何浩'),
+      持有者: z.enum(['何浩', '<user>', '李攀']).prefault('何浩'),
       板块完好度: z
         .record(z.string().describe('板块名'), z.enum(['完好', '半损坏', '损坏']))
         .prefault({

@@ -25,8 +25,8 @@ const system = computed(() => store.data.系统);
 
 <style lang="scss" scoped>
 .bar {
-  padding: 8px 12px;
-  background: linear-gradient(180deg, #fffdf8 0%, #f6f1e7 100%);
+  padding: 8px 12px 9px;
+  background: var(--c-surface-raised);
 }
 
 .bar__line {

@@ -80,7 +80,7 @@ function next() {
   transition: background 0.2s ease;
 
   &:hover:not(:disabled) {
-    background: #f3ece0;
+    background: var(--c-surface-soft);
   }
 
   &:disabled {
@@ -100,7 +100,7 @@ function next() {
   width: 7px;
   height: 7px;
   padding: 0;
-  background: var(--c-border);
+  background: var(--c-track);
   border: none;
   border-radius: 50%;
   cursor: pointer;

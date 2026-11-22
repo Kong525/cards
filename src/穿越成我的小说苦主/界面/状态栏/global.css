@@ -5,17 +5,19 @@
 }
 
 :root {
-  /* 语义配色：见 design-spec 的 UI 设计段 */
-  --c-surface: #f6f1e7; /* 早饭桌布那层被蒸汽熏过的暖白 */
-  --c-surface-raised: #fffdf8; /* 压在桌上的白瓷盘 */
-  --c-text: #2f2b26; /* 写在旧纸上的墨 */
-  --c-text-muted: #8a8378; /* 铅笔在纸背留下的痕 */
-  --c-border: #ded6c6; /* 桌沿磨掉漆露出的木色 */
-  --c-primary: #6b4a63; /* 暗紫：黑蕾丝与紫喷雾之间 */
-  --c-accent: #b4485c; /* 涌上脸的血色 */
-  --c-system: #4a7a5c; /* 系统机械音的那种绿 */
-  --c-warn: #b07c2a; /* 半损坏的提示灯 */
-  --c-danger: #a33a35; /* 黑屏前最后那行能量不足 */
+  /* 语义配色默认值（夜紫）。实际色值由 App.vue 按所选主题覆盖 */
+  --c-surface: #171522;
+  --c-surface-raised: #1f1c2e;
+  --c-surface-soft: #262238;
+  --c-track: #2b2743;
+  --c-text: #e9e5f5;
+  --c-text-muted: #9a93b4;
+  --c-border: #37315a;
+  --c-primary: #8b74e6;
+  --c-accent: #c46a9c;
+  --c-system: #5aa88a;
+  --c-warn: #c9944a;
+  --c-danger: #c65a5a;
 
   --font-body: 'Microsoft YaHei', 'PingFang SC', sans-serif;
 }

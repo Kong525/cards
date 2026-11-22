@@ -69,7 +69,7 @@ const known_list = computed(() => Object.entries(props.state?.触发条件 ?? {}
 
 .list__item {
   padding: 1px 7px;
-  background: #f3ece0;
+  background: var(--c-surface-soft);
   border-radius: 999px;
   font-size: 11.5px;
 }

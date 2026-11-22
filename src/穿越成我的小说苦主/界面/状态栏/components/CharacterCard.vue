@@ -67,7 +67,7 @@ const known_count = computed(() => Object.values(props.state?.触发条件 ?? {}
 
   &.is-shown {
     border-left-color: var(--c-accent);
-    box-shadow: 0 0 0 1px rgb(180 72 92 / 22%);
+    box-shadow: 0 0 0 1px rgb(196 106 156 / 26%);
   }
 
   &.is-deep .score__value {
@@ -142,7 +142,7 @@ const known_count = computed(() => Object.values(props.state?.触发条件 ?? {}
   position: relative;
   height: 8px;
   margin: 6px 0 8px;
-  background: #ece5d8;
+  background: var(--c-track);
   border-radius: 4px;
 }
 
@@ -158,7 +158,7 @@ const known_count = computed(() => Object.values(props.state?.触发条件 ?? {}
   top: -2px;
   width: 1px;
   height: 12px;
-  background: rgb(47 43 38 / 30%);
+  background: rgb(233 229 245 / 26%);
 
   i {
     position: absolute;
