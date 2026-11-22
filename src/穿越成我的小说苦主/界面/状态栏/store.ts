@@ -31,6 +31,22 @@ export interface CharacterState {
   触发条件: Record<string, string>;
 }
 
+/** 触发条件的三态：手稿是他自己写的，已验证是亲手做成过，不符是被改过 */
+export type TriggerState = '手稿' | '已验证' | '不符';
+
+/** 把一个人的触发条件按三态拆开 */
+export function split_triggers(cond: Record<string, string> | undefined) {
+  const entries = Object.entries(cond ?? {});
+  const pick = (state: TriggerState) => entries.filter(([, v]) => v === state).map(([k]) => k);
+  return { done: pick('已验证'), draft: pick('手稿'), off: pick('不符') };
+}
+
+/** 手稿里没有这个人：不在固定名单里，且一条条件都没记下来 */
+export function is_unwritten(data: unknown, name: string): boolean {
+  if ((FIXED_TARGETS as readonly string[]).includes(name)) return false;
+  return Object.keys(get_character(data, name)?.触发条件 ?? {}).length === 0;
+}
+
 /** 从 stat_data 里取一名角色：既有角色直接取，其他角色走开放记录 */
 export function get_character(data: unknown, name: string): CharacterState | undefined {
   const root = data as Record<string, unknown>;

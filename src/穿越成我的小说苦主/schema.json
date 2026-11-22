@@ -306,8 +306,9 @@
           "additionalProperties": {
             "type": "string",
             "enum": [
-              "已知",
-              "未知"
+              "手稿",
+              "已验证",
+              "不符"
             ]
           }
         }

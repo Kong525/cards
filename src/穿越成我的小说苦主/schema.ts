@@ -16,7 +16,7 @@ const CharacterEntry = z.object({
   显形态: z.enum(['潜伏', '显形']).prefault('潜伏'),
   今日功课: z.enum(['已完成', '超额']).prefault('已完成'),
   在场: z.boolean().prefault(false),
-  触发条件: z.record(z.string().describe('触发名'), z.enum(['已知', '未知'])).prefault({}),
+  触发条件: z.record(z.string().describe('触发名'), z.enum(['手稿', '已验证', '不符'])).prefault({}),
 });
 
 export const Schema = z.object({

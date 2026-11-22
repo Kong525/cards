@@ -38,13 +38,15 @@
     <div class="tags">
       <span class="tag" :class="{ 'tag--shown': state?.显形态 === '显形' }">{{ state?.显形态 || '潜伏' }}</span>
       <span class="tag tag--hw">功课 {{ state?.今日功课 || '已完成' }}</span>
-      <span class="tag">{{ known_count }} 条条件已知</span>
+      <span class="tag tag--ok">已验 {{ counts.done }}</span>
+      <span v-if="counts.off" class="tag tag--off">不符 {{ counts.off }}</span>
+      <span v-else-if="counts.draft" class="tag tag--hw">手稿 {{ counts.draft }}</span>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { CharacterState } from '../store';
+import { split_triggers, type CharacterState } from '../store';
 
 const props = defineProps<{
   name: string;
@@ -54,7 +56,10 @@ const props = defineProps<{
   fallback: boolean;
 }>();
 
-const known_count = computed(() => Object.values(props.state?.触发条件 ?? {}).filter(v => v === '已知').length);
+const counts = computed(() => {
+  const g = split_triggers(props.state?.触发条件);
+  return { done: g.done.length, draft: g.draft.length, off: g.off.length };
+});
 </script>
 
 <style lang="scss" scoped>
@@ -234,5 +239,17 @@ const known_count = computed(() => Object.values(props.state?.触发条件 ?? {}
 
 .tag--hw {
   border-style: dashed;
+}
+
+.tag--ok {
+  border-color: var(--c-system);
+  color: var(--c-system);
+  font-weight: 600;
+}
+
+.tag--off {
+  border-color: var(--c-danger);
+  color: var(--c-danger);
+  font-weight: 600;
 }
 </style>

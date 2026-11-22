@@ -17,13 +17,13 @@
     <button v-for="(name, i) in list" :key="name" type="button" class="dot" :class="{ 'dot--on': i === index }" :title="name" @click="index = i"></button>
   </div>
 
-  <TriggerPanel v-if="current" :name="current" :state="current_state" />
+  <TriggerPanel v-if="current" :name="current" :state="current_state" :unwritten="current ? is_unwritten(store.data, current) : false" />
 </template>
 
 <script setup lang="ts">
 import CharacterCard from './CharacterCard.vue';
 import TriggerPanel from './TriggerPanel.vue';
-import { get_character, list_characters, useDataStore } from '../store';
+import { get_character, is_unwritten, list_characters, useDataStore } from '../store';
 
 const store = useDataStore();
 
