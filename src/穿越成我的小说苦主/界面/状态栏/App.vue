@@ -13,6 +13,7 @@
 
     <div v-if="open" class="body">
       <CharacterPager />
+      <SystemPanel />
     </div>
 
     <div class="palette">
@@ -33,6 +34,7 @@
 
 <script setup lang="ts">
 import CharacterPager from './components/CharacterPager.vue';
+import SystemPanel from './components/SystemPanel.vue';
 import TopBar from './components/TopBar.vue';
 import { get_character, list_characters, THEMES, theme_vars, useDataStore, type ThemeName } from './store';
 

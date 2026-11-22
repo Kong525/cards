@@ -2,10 +2,13 @@
   <div class="panel">
     <div class="panel__head">
       <span class="panel__label">{{ name }} 的触发条件</span>
-      <span class="panel__count">已知 {{ known_list.length }} 项</span>
+      <span class="panel__count">已知 {{ known_list.length }}<i v-if="unknown_count > 0"> · 未解 {{ unknown_count }}</i></span>
     </div>
 
-    <div v-if="known_list.length === 0" class="empty">还没试出任何一条。摸头、塞钱、递卡、地上的狗盆，都得自己动手才知道。</div>
+    <div v-if="known_list.length === 0" class="empty">
+      <template v-if="unknown_count > 0">还有 {{ unknown_count }} 条没摸出来。摸头、塞钱、递卡、地上的狗盆，都得自己动手才知道。</template>
+      <template v-else>这个人身上还没有能触发的东西。</template>
+    </div>
 
     <ul v-else class="list">
       <li v-for="cond in known_list" :key="cond" class="list__item">{{ cond }}</li>
@@ -22,6 +25,7 @@ const props = defineProps<{
 }>();
 
 const known_list = computed(() => Object.entries(props.state?.触发条件 ?? {}).filter(([, v]) => v === '已知').map(([k]) => k));
+const unknown_count = computed(() => Object.values(props.state?.触发条件 ?? {}).filter(v => v === '未知').length);
 </script>
 
 <style lang="scss" scoped>
@@ -50,6 +54,12 @@ const known_list = computed(() => Object.entries(props.state?.触发条件 ?? {}
   color: var(--c-primary);
   font-size: 12px;
   font-weight: 700;
+
+  i {
+    color: var(--c-text-muted);
+    font-style: normal;
+    font-weight: 500;
+  }
 }
 
 .empty {

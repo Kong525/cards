@@ -96,6 +96,33 @@ export const THEMES = {
 
 export type ThemeName = keyof typeof THEMES;
 
+/** 八块板块的修复消耗，数值来自创作规划的价值表 */
+export const PLATE_COST: Record<string, number> = {
+  淫能储存: 60,
+  检视人物: 80,
+  女仆店营业: 100,
+  人格调整: 120,
+  任务: 160,
+  商城: 160,
+  具现: 200,
+  洗脑: 240,
+};
+
+/** 板块在面板里的固定顺序：先修得起的，再修不起的 */
+export const PLATE_ORDER: string[] = ['检视人物', '人格调整', '女仆店营业', '淫能储存', '任务', '商城', '具现', '洗脑'];
+
+/** 淫能上限：淫能储存完好才有 100，其余一律 30 */
+export function energy_cap(plate_state: Record<string, string> | undefined): number {
+  return plate_state?.淫能储存 === '完好' ? 100 : 30;
+}
+
+/** 板块状态到色号的映射，供面板上色 */
+export const PLATE_TONE: Record<string, string> = {
+  完好: 'ok',
+  半损坏: 'warn',
+  损坏: 'danger',
+};
+
 /** 把主题映射成 CSS 变量 */
 export function theme_vars(name: ThemeName): Record<string, string> {
   const t = THEMES[name];
